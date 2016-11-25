@@ -3,7 +3,11 @@ Rails.application.routes.draw do
 
   root 'users#new'
 
-  resources :users, only: [:index, :new, :create, :show]
+  resources :users, only: [:index, :new, :create, :show], shallow: true do
+    resources :settings, only: [:index]
+  end
+
+
   resources :sessions, only: [:new, :create] do
     delete :destroy, on: :collection
   end

@@ -1,35 +1,9 @@
 <h1>Welcome</h1>
 
+<p><em>Quiet, Please</em> is a silent auction tool, blah blah blah.</p>
+
 <h3>Sign Up</h3>
 
-<% if @user.errors.any? %>
-  <ul>
-    <% @user.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-  </ul>
-<% end %>
+<%= render 'signup_form', { btn_label: 'Submit' } %>
 
-<%= form_for @user do |f| %>
-  <div>
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name %>
-  </div>
-  <div>
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name %>
-  </div>
-  <div>
-    <%= f.label :email %>
-    <%= f.email_field :email %>
-  </div>
-  <div>
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-  </div>
-  <div>
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
-  </div>
-  <%= f.submit %>
-<% end %>
+
