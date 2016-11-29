@@ -38,6 +38,7 @@ gem 'mini_magick'
 gem 'fog'
 
 # UI Awesomeness
+gem 'bootstrap-sass'
 gem 'font-awesome-sass'
 gem 'font-awesome-rails'
 gem 'simple_form'

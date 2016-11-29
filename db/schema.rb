@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161125234138) do
+ActiveRecord::Schema.define(version: 20161128230824) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,73 @@ ActiveRecord::Schema.define(version: 20161125234138) do
     t.datetime "closing_time"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_auctions_on_user_id", using: :btree
+  end
+
+  create_table "bids", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "listing_id"
+    t.integer  "amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["listing_id"], name: "index_bids_on_listing_id", using: :btree
+    t.index ["user_id"], name: "index_bids_on_user_id", using: :btree
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "listing_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["listing_id"], name: "index_favorites_on_listing_id", using: :btree
+    t.index ["user_id"], name: "index_favorites_on_user_id", using: :btree
+  end
+
+  create_table "listings", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "tier"
+    t.string   "title"
+    t.string   "description"
+    t.integer  "reserve_price"
+    t.integer  "guaranteed_price"
+    t.integer  "winning_bid"
+    t.integer  "winner_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["user_id"], name: "index_listings_on_user_id", using: :btree
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "subject"
+    t.text     "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_messages_on_user_id", using: :btree
+  end
+
+  create_table "organizations", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.text     "description"
+    t.integer  "phone"
+    t.string   "email"
+    t.string   "website"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["user_id"], name: "index_organizations_on_user_id", using: :btree
+  end
+
+  create_table "tiers", force: :cascade do |t|
+    t.integer  "auction_id"
+    t.string   "name"
+    t.text     "description"
+    t.integer  "opening_time"
+    t.integer  "closing_time"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["auction_id"], name: "index_tiers_on_auction_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -38,4 +105,5 @@ ActiveRecord::Schema.define(version: 20161125234138) do
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
   end
 
+  add_foreign_key "auctions", "users"
 end

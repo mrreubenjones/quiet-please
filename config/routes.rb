@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :new, :create, :show], shallow: true do
     resources :settings, only: [:index]
   end
-
+  get '/dashboard', to: 'users#dashboard', as: 'dashboard'
 
   resources :sessions, only: [:new, :create] do
     delete :destroy, on: :collection

@@ -1,0 +1,18 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <%= link_to "Quiet Please", root_path, id: "logo" %>
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "Home", '#' %></li>
+        <li><%= link_to "Help", '#' %></li>
+        <% if user_signed_in? %>
+          <li><a href="#">Hello <%= current_user.first_name %></a></li>
+          <li><%= link_to "Dashboard", dashboard_path %></li>
+          <li><%= link_to "Log out", sessions_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to "Log in", '#' %></li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+</header>
