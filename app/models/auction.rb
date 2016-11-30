@@ -2,6 +2,8 @@ class Auction < ApplicationRecord
   belongs_to :user
   has_many :listings, dependent: :destroy
 
+  after_initialize :set_defaults
+
   # Manage states with Acts As State Machine: https://github.com/aasm/aasm
   include AASM
 
@@ -23,5 +25,12 @@ class Auction < ApplicationRecord
       transitions :from => [:drafted, :completed], :to => :cancelled
     end
   end
+
+
+private
+
+def set_defaults
+  self.raised ||= 0
+end
 
 end

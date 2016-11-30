@@ -21,9 +21,18 @@ class AuctionsController < ApplicationController
   end
 
   def edit
+    @auction = Auction.find params[:id]
   end
 
   def update
+    @auction = Auction.find params[:id]
+    if @auction.update auction_params
+      flash[:notice] = 'Auction updated'
+      redirect_to @auction
+    else
+      flash.now[:alert] = 'Please see errors below!'
+      render :edit
+    end
   end
 
   def destroy

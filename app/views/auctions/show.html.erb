@@ -1,1 +1,6 @@
 <h1><%= @auction.name %></h1>
+<p><%= @auction.description %></p>
+<%= link_to 'Edit', edit_auction_path(@auction) %>
+<%= link_to 'Delete', auction_path(@auction),
+                            method: :delete,
+                            data: { confirm: "Are you sure? There's no going back!" } %>
