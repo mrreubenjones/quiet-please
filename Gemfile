@@ -32,6 +32,9 @@ gem 'twitter'
 gem 'rack-cors'
 gem 'friendly_id'
 
+# Manage the states
+gem 'aasm'
+
 # Using User Generated Images
 gem 'carrierwave'
 gem 'mini_magick'

@@ -25,7 +25,13 @@ class UsersController < ApplicationController
   # end
 
   def dashboard
-    @user = User.find(session[:user_id])
+    if user_signed_in?
+      @user = User.find(session[:user_id])
+    else
+      redirect_to root_path
+    end
+    @auction = Auction.new
+    @auctions = @user.auctions
   end
 
   private
@@ -35,7 +41,8 @@ class UsersController < ApplicationController
                                   :last_name,
                                   :email,
                                   :password,
-                                  :password_confirmation)
+                                  :password_confirmation
+                                  )
   end
 
 end

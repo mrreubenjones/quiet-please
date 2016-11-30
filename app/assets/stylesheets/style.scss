@@ -1,5 +1,4 @@
-@import "bootstrap-sprockets";
-@import "bootstrap";
+
 
 
 /* -------------------------------- Media ---------------------------------- */
@@ -30,6 +29,16 @@ textarea {
   margin-bottom: 10px;
 }
 
+/* -------------------------------- Tables --------------------------------- */
+
+table i {
+  margin: 0 0.5em;
+  color: #aaa;
+}
+
+table i:hover {
+  color: #000;
+}
 
 /* -------------------------------- Header --------------------------------- */
 
@@ -37,17 +46,20 @@ textarea {
 #logo {
   float: left;
   margin-right: 10px;
-  font-size: 1.7em;
-  color: #fff;
-  text-transform: uppercase;
-  letter-spacing: -1px;
-  padding-top: 9px;
-  font-weight: bold;
+  font-family: 'Patua One', cursive;
+  font-size: 1.8em;
+  color: #ccc;
+  padding: 8px 0 0;
+  font-weight: 100;
 }
 
 #logo:hover {
   color: #fff;
   text-decoration: none;
+}
+
+.dropdown i {
+  font-size: 1.2em;
 }
 
 /* -------------------------------- Footer --------------------------------- */
@@ -67,7 +79,7 @@ footer a:hover {
   color: #222;
 }
 
-footer small {
+footer .tagline {
   float: left;
 }
 
@@ -91,14 +103,14 @@ h1 {
   font-size: 3em;
   letter-spacing: -2px;
   margin-bottom: 30px;
-  text-align: center;
+  // text-align: center;
 }
 
 h2 {
   font-size: 1.2em;
   letter-spacing: -1px;
   margin-bottom: 30px;
-  text-align: center;
+  // text-align: center;
   font-weight: normal;
   color: #777;
 }

@@ -1,1 +1,29 @@
-Hi <%= @user.first_name %>.
+<h1>Hi <%= @user.first_name %>.</h1>
+
+<% if @user.auctions.count > 0 %>
+  <h2>Your Auctions</h2>
+  <table class="table table-striped">
+    <tr>
+      <th>Name</th>
+      <th>Status</th>
+      <th>Raised</th>
+      <th class="text-center">Actions</th>
+    </tr>
+
+    <% @auctions.each do |a| %>
+    <tr>
+      <td><%= a.name %></td>
+      <td><%= a.aasm_state.titleize %></td>
+      <td><%= a.name %></td>
+      <td class="text-center"><%= icon('pencil') %><%= icon('trash') %></td>
+    </tr>
+    <% end %>
+
+  </table>
+  <hr />
+  <h2>New auction</h2>
+  <%= render 'auctions/auction_form', btn_label: 'New Auction' %>
+<% else %>
+  <h2>Get started with your first auction</h2>
+  <%= render 'auctions/auction_form', btn_label: 'New Auction' %>
+<% end %>
