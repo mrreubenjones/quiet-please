@@ -1,6 +1,39 @@
 <h1><%= @auction.name %></h1>
 <p><%= @auction.description %></p>
 <%= link_to 'Edit', edit_auction_path(@auction) %>
-<%= link_to 'Delete', auction_path(@auction),
-                            method: :delete,
-                            data: { confirm: "Are you sure? There's no going back!" } %>
+<%= link_to 'Delete',
+  auction_path(@auction),
+  method: :delete,
+  data: { confirm: "Are you sure? There's no going back!" }
+%>
+
+<hr />
+<!-- Buttons trigger modals -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#tierModal">
+  Add Tier
+</button>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#listingModal">
+  Add Listing
+</button>
+
+<%= render 'tiers/tier_form', btn_label: 'New Tier' %> <%# RJ: Fix tier modal partial %>
+<%= render 'listings/listing_form', btn_label: 'New Listing' %>
+
+<hr />
+<table class="table table-striped">
+  <tr>
+    <th>Listing</th>
+    <th>Description</th>
+    <th>Reserve</th>
+    <th class="text-nowrap">Price Guarantee</th>
+  </tr>
+
+<% @listings.each do |l| %>
+  <tr>
+    <td><%= link_to l.title, l %></td>
+    <td><%= l.description %></td>
+    <td><%= l.reserve_price %></td>
+    <td><%= l.guaranteed_price %></td>
+  </tr>
+<% end %>
+</table>

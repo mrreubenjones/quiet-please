@@ -1,0 +1,18 @@
+<h1><%= @listing.title %></h1>
+
+<div class="meta-data">
+  <span>Auction: <%= link_to @listing.auction.name, auction_path(@listing.auction_id) %></span>
+  <span>Reserve Price: <%= @listing.reserve_price %></span>
+  <span>Guaranteed Price: <%= @listing.guaranteed_price %></span>
+</div>
+
+<h2>Description</h2>
+
+<p><%= @listing.description %></p>
+
+
+<%= link_to 'Edit', edit_listing_path(@listing) %>
+<%= link_to 'Delete',
+  listing_path(@listing),
+  method: :delete
+%>

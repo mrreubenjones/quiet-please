@@ -18,6 +18,9 @@ class AuctionsController < ApplicationController
 
   def show
     @auction = Auction.find params[:id]
+    @tier = Tier.new
+    @listing = Listing.new
+    @listings = @auction.listings.order(title: :DESC)
   end
 
   def edit
@@ -38,6 +41,7 @@ class AuctionsController < ApplicationController
   def destroy
     @auction = Auction.find params[:id]
     @auction.destroy
+    redirect_to dashboard_path, notice: 'Post deleted'
   end
 
 private

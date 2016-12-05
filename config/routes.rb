@@ -8,7 +8,10 @@ Rails.application.routes.draw do
   end
   get '/dashboard', to: 'users#dashboard', as: 'dashboard'
 
-  resources :auctions
+  resources :auctions, shallow: true do
+    resources :tiers
+    resources :listings
+  end
 
   resources :sessions, only: [:new, :create] do
     delete :destroy, on: :collection

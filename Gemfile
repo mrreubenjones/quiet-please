@@ -40,6 +40,9 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog'
 
+# Secure Configuration!
+gem 'figaro'
+
 # UI Awesomeness
 gem 'bootstrap-sass'
 gem 'font-awesome-sass'
