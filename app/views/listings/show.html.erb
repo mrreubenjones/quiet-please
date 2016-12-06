@@ -9,7 +9,7 @@
 <h2>Description</h2>
 
 <p><%= @listing.description %></p>
-
+<%= image_tag(@listing.images[0].url) %>
 
 <%= link_to 'Edit', edit_listing_path(@listing) %>
 <%= link_to 'Delete',

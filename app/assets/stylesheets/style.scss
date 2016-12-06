@@ -5,7 +5,8 @@
 // Footer
 // Typography
 // Components
-
+// Utilities
+// Bootstrap Overrides
 
 /* Media Queries ----------------------------------------------------------- */
 
@@ -46,6 +47,20 @@ table i:hover {
   color: #000;
 }
 
+/* Forms ------------------------------------------------------------------ */
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form .short {
+  width: 25%;
+}
+
+.form .medium {
+  width: 50%;
+}
 
 /* Header ----------------------------------------------------------------- */
 
@@ -138,6 +153,22 @@ p {
 
 .meta-data > span:last-of-type {
   border: 0;
+}
+
+/* Utilities -------------------------------------------------------------- */
+
+
+
+
+
+/* Bootstrap Overrides ---------------------------------------------------- */
+
+.modal-footer {
+  text-align: left;
+}
+
+.modal-footer *:first-of-type {
+  margin-left: 15px;
 }
 
 

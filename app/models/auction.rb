@@ -1,6 +1,7 @@
 class Auction < ApplicationRecord
   belongs_to :user
   has_many :listings, dependent: :destroy
+  has_many :tiers, dependent: :destroy
 
   after_initialize :set_defaults
 

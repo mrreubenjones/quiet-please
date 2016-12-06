@@ -9,6 +9,7 @@ class ListingsController < ApplicationController
     @listing = Listing.new listing_params
     @listing.user = current_user
     @listing.auction = @auction
+    @listing.images = params[:file]
     if @listing.save
       flash[:notice] = 'Listing saved.'
       redirect_to auction_path(@auction)
@@ -30,7 +31,14 @@ class ListingsController < ApplicationController
 private
 
   def listing_params
-    params.require(:listing).permit([:tier, :title, :description, :reserve_price, :guaranteed_price])
+    params.require(:listing).permit([
+      :tier,
+      :title,
+      :description,
+      :reserve_price,
+      :guaranteed_price,
+      {images: []}
+      ])
   end
 
 end

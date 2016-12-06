@@ -1,4 +1,5 @@
 class AuctionsController < ApplicationController
+  before_action :authenticate_user, except: [:index, :show]
 
   def index
   end
@@ -12,7 +13,7 @@ class AuctionsController < ApplicationController
     if @auction.save
       redirect_to auction_path(@auction)
     else
-      render new
+      render :new
     end
   end
 
@@ -41,7 +42,7 @@ class AuctionsController < ApplicationController
   def destroy
     @auction = Auction.find params[:id]
     @auction.destroy
-    redirect_to dashboard_path, notice: 'Post deleted'
+    redirect_to dashboard_path, notice: 'Auction deleted'
   end
 
 private
