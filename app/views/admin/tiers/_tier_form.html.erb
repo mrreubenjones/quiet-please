@@ -7,7 +7,7 @@
         <h4 class="modal-title" id="myModalLabel">Add new tier</h4>
       </div>
       <div class="modal-body form">
-        <%= form_for [@auction, @tier] do |f| %>
+        <%= form_for @tier, url: admin_auction_tiers_path(@auction)  do |f| %>
           <div class="form-group col-xs-8">
             <%= f.label :name %>
             <%= f.text_field :name, class: 'form-control' %>

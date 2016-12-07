@@ -1,8 +1,8 @@
-<h1>Hi Supporters! 👋🏽</h1>
-<p><%= @auction.name %> <%= @auction.description %></p>
-<%= link_to 'Edit', edit_auction_path(@auction) %>
+<h1><%= @auction.name %></h1>
+<p><%= @auction.description %></p>
+<%= link_to 'Edit', edit_admin_auction_path(@auction) %>
 <%= link_to 'Delete',
-  auction_path(@auction),
+  admin_auction_path(@auction),
   method: :delete,
   data: { confirm: "Are you sure? There's no going back!" }
 %>
@@ -16,8 +16,8 @@
   Add Listing
 </button>
 
-<%= render 'tiers/tier_form', btn_label: 'New Tier' %>
-<%= render 'listings/listing_form', btn_label: 'New Listing' %>
+<%= render 'admin/tiers/tier_form', btn_label: 'New Tier' %>
+<%= render 'admin/listings/listing_form', btn_label: 'New Listing' %>
 
 <hr />
 <%= render 'tiers_table' if @auction.tiers.present? %>

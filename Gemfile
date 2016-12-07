@@ -36,7 +36,7 @@ gem 'friendly_id'
 gem 'aasm'
 
 # Using User Generated Images
-gem 'carrierwave', github:'carrierwaveuploader/carrierwave' # RJ: Is this secure?
+gem 'carrierwave-aws'
 gem 'mini_magick'
 gem 'fog-aws'
 

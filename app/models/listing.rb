@@ -6,13 +6,13 @@ class Listing < ApplicationRecord
 
   validates :title,
     presence: true,
-    uniqueness: true  
+    uniqueness: true
   validates :description, presence: true
   validates :reserve_price, presence: true
 
 
 
-  mount_uploaders :images, ImageUploader
+  mount_uploader :images, ImageUploader
 
 
   def max_amount

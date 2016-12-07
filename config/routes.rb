@@ -11,22 +11,33 @@ Rails.application.routes.draw do
   post '/auctions/:auction_id/win', to: 'transitions#create_win', as: 'win'
   post '/auctions/:auction_id/draft', to: 'transitions#create_draft', as: 'draft'
 
+  # User management
   resources :users, only: [:index, :new, :create, :show], shallow: true do
     resources :settings, only: [:index]
     resources :bids, only: :index
   end
+  resources :sessions, only: [:new, :create] do
+    delete :destroy, on: :collection
+  end
   get '/dashboard', to: 'users#dashboard', as: 'dashboard'
 
-  resources :auctions, shallow: true do
-    resources :tiers
-    resources :listings do
+  # Auction owner management
+  namespace :admin do
+    resources :auctions, shallow: true do
+      resources :tiers
+      resources :listings
+    end
+  end
+
+  # Auction public views
+  resources :auctions, only: :show, shallow: true do
+    # resources :tiers, only: :show
+    resources :listings, only: :show do
       resources :bids
     end
   end
 
-  resources :sessions, only: [:new, :create] do
-    delete :destroy, on: :collection
-  end
+
 
 
 

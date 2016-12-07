@@ -1,0 +1,19 @@
+<h1><%= @listing.title %></h1>
+
+<div class="meta-data">
+  <span>Auction: <%= link_to @listing.auction.name, admin_auction_path(@listing.auction_id) %></span>
+  <span>Reserve Price: <%= @listing.reserve_price %></span>
+  <span>Guaranteed Price: <%= @listing.guaranteed_price %></span>
+</div>
+
+<h2>Description</h2>
+
+<p><%= @listing.description %></p>
+<%= image_tag(@listing.images[0].url) if @listing.images.present? %>
+
+<%= link_to 'Edit', edit_admin_listing_path(@listing) %>
+<%= link_to 'Delete',
+  admin_listing_path(@listing),
+  method: :delete,
+  data: { confirm: 'There is no undo for this action' }
+%>

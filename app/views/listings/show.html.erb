@@ -1,5 +1,5 @@
-<h1><%= @listing.title %></h1>
-
+<h1>Hi Supporters</h1>
+<%= @listing.title %>
 <div class="meta-data">
   <span>Auction: <%= link_to @listing.auction.name, auction_path(@listing.auction_id) %></span>
   <span>Reserve Price: <%= @listing.reserve_price %></span>
@@ -9,10 +9,4 @@
 <h2>Description</h2>
 
 <p><%= @listing.description %></p>
-<%= image_tag(@listing.images[0].url) %>
-
-<%= link_to 'Edit', edit_listing_path(@listing) %>
-<%= link_to 'Delete',
-  listing_path(@listing),
-  method: :delete
-%>
+<%#= image_tag(@listing.images[0].url) %>

@@ -7,7 +7,7 @@
         <h4 class="modal-title" id="myModalLabel">Add new listing</h4>
       </div>
       <div class="modal-body form">
-        <%= form_for [@auction, @listing] do |f| %>
+        <%= form_for @listing, url: admin_auction_listings_path(@auction) do |f| %>
           <% if @auction.tiers.present? %>
             <div class="form-group col-xs-8">
               <%= f.label :tier %>

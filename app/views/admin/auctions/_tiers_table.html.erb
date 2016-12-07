@@ -9,7 +9,7 @@
 
     <% @tiers.each do |t| %>
       <tr>
-        <td><%= link_to t.name, t %></td>
+        <td><%= link_to t.name, admin_tier_path(t) %></td>
         <td><%= t.opening_time %></td>
         <td><%= t.closing_time %></td>
       </tr>
