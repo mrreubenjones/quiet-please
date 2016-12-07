@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-sm-12 col-lg-6">
+    <table class="table table-striped">
+      <tr>
+        <th>Tier</th>
+        <th>Opening Time</th>
+        <th>Closing Time</th>
+      </tr>
+
+    <% @tiers.each do |t| %>
+      <tr>
+        <td><%= link_to t.name, t %></td>
+        <td><%= t.opening_time %></td>
+        <td><%= t.closing_time %></td>
+      </tr>
+    <% end %>
+    </table>
+  </div>
+</div>

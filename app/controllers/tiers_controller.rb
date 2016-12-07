@@ -9,6 +9,7 @@ class TiersController < ApplicationController
   def create
     @auction = Auction.find params[:auction_id]
     @tier = Tier.new tier_params
+    @tier.auction = @auction
     if @tier.save
       redirect_to auction_path(@auction)
     else
@@ -17,6 +18,7 @@ class TiersController < ApplicationController
   end
 
   def show
+    @tier = Tier.find params[:id]
   end
 
   def edit

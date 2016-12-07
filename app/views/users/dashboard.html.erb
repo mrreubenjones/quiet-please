@@ -17,7 +17,10 @@
       <td><%= number_to_currency(a.raised) %></td>
       <td class="text-center">
         <%= link_to icon('pencil'), edit_auction_path(a) %>
-        <%= icon('trash') %>
+        <%= link_to icon('trash'),
+          auction_path(a),
+          method: :delete,
+          data: { confirm: "Are you sure? There's no going back!" } %>
       </td>
     </tr>
     <% end %>

@@ -1,14 +1,12 @@
 class HomeController < ApplicationController
-  before_action :authenticate_user, except: [:index]
 
-  def index
-    @user = User.new
+  def home
+    case
+    when current_user.present?
+      redirect_to dashboard_path
+    else
+      redirect_to new_user_path
+    end
   end
-
-
-
-  private
-
-
 
 end

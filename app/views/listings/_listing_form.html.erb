@@ -11,7 +11,7 @@
           <% if @auction.tiers.present? %>
             <div class="form-group col-xs-8">
               <%= f.label :tier %>
-              <%= f.collection_select(:tier, Tier.all, :id, :name) %>
+              <%= f.collection_select(:tier, @auction.tiers.all, :id, :name, {}, {:class=>'form-control'}) %>
             </div>
           <% end %>
           <div class="form-group col-xs-8">

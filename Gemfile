@@ -49,6 +49,7 @@ gem 'font-awesome-sass'
 gem 'font-awesome-rails'
 gem 'simple_form'
 gem 'kaminari'
+gem 'data-confirm-modal'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

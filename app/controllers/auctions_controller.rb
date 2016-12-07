@@ -20,6 +20,7 @@ class AuctionsController < ApplicationController
   def show
     @auction = Auction.find params[:id]
     @tier = Tier.new
+    @tiers = @auction.tiers.order(:name)
     @listing = Listing.new
     @listings = @auction.listings.order(title: :DESC)
   end
