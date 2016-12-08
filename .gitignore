@@ -16,8 +16,9 @@
 # Ignore Byebug command history file.
 .byebug_history
 
-# Ignore application configuration
+# Ignore sensitive data
 /config/application.yml
+/config/secrets.yml
 
 # Ignore UGC
 /public/uploads/*
