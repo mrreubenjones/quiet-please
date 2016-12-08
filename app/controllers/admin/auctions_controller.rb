@@ -22,7 +22,7 @@ class Admin::AuctionsController < ApplicationController
     @tier = Tier.new
     @tiers = @auction.tiers.order(:name)
     @listing = Listing.new
-    @listings = @auction.listings.order(title: :DESC)
+    @listings = @auction.listings.order(:title)
   end
 
   def edit

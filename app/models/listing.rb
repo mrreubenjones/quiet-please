@@ -19,4 +19,8 @@ class Listing < ApplicationRecord
     bids.max.amount
   end
 
+  # Friendlier URLs
+  def to_param
+      "#{id}-#{title.parameterize}"
+  end
 end
