@@ -10,12 +10,13 @@ class Listing < ApplicationRecord
   validates :description, presence: true
   validates :reserve_price, presence: true
 
+  attr_accessor :remove_image
 
-
-  mount_uploader :images, ImageUploader
+  mount_uploaders :images, ImageUploader
 
 
   def max_amount
     bids.max.amount
   end
+
 end
