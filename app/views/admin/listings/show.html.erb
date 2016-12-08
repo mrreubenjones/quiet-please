@@ -9,11 +9,21 @@
 <h2>Description</h2>
 
 <p><%= @listing.description %></p>
-<%= image_tag(@listing.images[0].url) if @listing.images.present? %>
-
+<% if @listing.images.present? %>
+  <% @listing.images.each do |i| %>
+    <%= image_tag i.url(:full_listing_size) %>
+  <% end %>
+<% end %>
 <%= link_to 'Edit', edit_admin_listing_path(@listing) %>
 <%= link_to 'Delete',
   admin_listing_path(@listing),
   method: :delete,
   data: { confirm: 'There is no undo for this action' }
 %>
+
+<!-- Buttons trigger modals -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editListing">
+  Edit Listing
+</button>
+
+<%= render 'admin/listings/edit_listing' %>

@@ -14,7 +14,11 @@
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require data-confirm-modal
-//= require turbolinks
+//= require pickadate/picker
+//= require pickadate/picker.date
+//= require pickadate/picker.time
 //= require_tree .
+
+
 
 

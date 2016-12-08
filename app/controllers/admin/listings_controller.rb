@@ -1,4 +1,5 @@
 class Admin::ListingsController < ApplicationController
+  before_action :authenticate_user
 
   def new
     @listing = Listing.new
@@ -15,16 +16,32 @@ class Admin::ListingsController < ApplicationController
       redirect_to admin_auction_path(@auction)
     else
       flash[:alert] = 'There was an issue with your listing. Please review the error message.'
-      render new
+      render :new
     end
   end
 
   def show
-    @listing = Listing.find params[:id]
+    find_listing
+    @auction = @listing.auction
+  end
+
+  def edit
+    find_listing
+  end
+
+  def update
+    find_listing
+    if @listing.update listing_params
+      flash[:notice] = 'Listing updated'
+      redirect_to admin_listing_path(@listing)
+    else
+      flash.now[:alert] = 'Please see errors below!'
+      render :edit
+    end
   end
 
   def destroy
-    @listing = Listing.find params[:id]
+    find_listing
     @listing.destroy
     redirect_to admin_auction_path(@listing.auction), notice: 'Listing deleted'
   end
@@ -40,6 +57,10 @@ private
       :guaranteed_price,
       {images: []}
       ])
+  end
+
+  def find_listing
+    @listing = Listing.find params[:id]
   end
 
 end

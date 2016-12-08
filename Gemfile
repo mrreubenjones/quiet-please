@@ -36,7 +36,7 @@ gem 'friendly_id'
 gem 'aasm'
 
 # Using User Generated Images
-gem 'carrierwave-aws'
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'mini_magick'
 gem 'fog-aws'
 
@@ -50,6 +50,7 @@ gem 'font-awesome-rails'
 gem 'simple_form'
 gem 'kaminari'
 gem 'data-confirm-modal'
+gem 'pickadate-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

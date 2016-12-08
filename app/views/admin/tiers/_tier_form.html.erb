@@ -18,11 +18,11 @@
           </div>
           <div class="form-group col-xs-8">
             <%= f.label :opening_time %>
-            <%= f.text_field :opening_time, class: 'form-control' %>
+            <%= f.text_field :opening_time, class: 'form-control timepicker' %>
           </div>
           <div class="form-group col-xs-8">
             <%= f.label :closing_time %>
-            <%= f.text_field :closing_time, class: 'form-control' %>
+            <%= f.text_field :closing_time, class: 'form-control timepicker' %>
           </div>
           <div class="form-group col-xs-8">
             <%= f.label :badge_color %>
@@ -48,3 +48,11 @@
     </div>
   </div>
 </div>
+
+<script type="text/javascript">
+  // Pickadate.js date picker
+  $('.datepicker').pickadate()
+
+  // Pickadate.js time picker
+  $('.timepicker').pickatime()
+</script>
