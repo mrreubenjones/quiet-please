@@ -15,11 +15,45 @@
       padding-top: 150px;
   }
 
+  .onboarding-screens section > div {
+    width: 100%;
+  }
+
+  // Signup & Login
+  .signup-page > div {
+    width: 100%;
+  }
+  .login-form {
+    width: 100%;
+  }
+
+  // Dashboard
+  .dashboard-blank-slate {
+    width: 100%;
+  }
+
 }
 
 @media (min-width: 769px) {
   body {
     padding-top: 70px;
+  }
+
+  .onboarding-screens section > div {
+    width: 425px;
+  }
+
+  // Signup & Login
+  .signup-page > div {
+    width: 45%;
+  }
+  .login-form {
+    width: 50%;
+  }
+
+  // Dashboard
+  .dashboard-blank-slate {
+    width: 50%;
   }
 
   .auction-controls {
@@ -80,18 +114,20 @@ table i:hover {
 
 /* Header ----------------------------------------------------------------- */
 
-
 #logo {
+  font-family: 'Questrial', cursive;
+}
+
+.navbar #logo {
   float: left;
   margin-right: 10px;
-  font-family: 'Patua One', cursive;
   font-size: 1.8em;
   color: #ccc;
   padding: 8px 0 0;
   font-weight: 100;
 }
 
-#logo:hover {
+.navbar #logo:hover {
   color: #fff;
   text-decoration: none;
 }
@@ -144,18 +180,12 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-size: 3em;
-  letter-spacing: -2px;
   margin-bottom: 30px;
-  // text-align: center;
 }
 
 h2 {
-  font-size: 1.2em;
-  letter-spacing: -1px;
   margin-bottom: 30px;
-  // text-align: center;
   font-weight: normal;
-  color: #777;
 }
 
 p {
@@ -167,6 +197,53 @@ p {
 
 /* Components -------------------------------------------------------------- */
 
+// Subheader data
+.meta-data > span {
+  margin-right: 1rem;
+  padding-right: 1rem;
+  border-right: solid 1px #eee;
+  text-transform: uppercase;
+}
+.meta-data > span:last-of-type {
+  border: 0;
+}
+
+// Onboarding
+.navbar-onboarding {
+  display: flex;
+  justify-content: flex-end;
+  background-color: rgba(0, 0, 0, 0.7);
+  font-size: 1.2em;
+}
+
+// Signup & Login
+.signup-page {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+// Dashboard
+.dashboard-blank-slate {
+
+}
+
+// Auctions
+.auction-controls {
+  font-size: 1.2em;
+
+  ul {
+    padding: 0;
+
+    li {
+      list-style-type: none;
+      border-top: solid 1px #ddd;
+      padding: 1rem 0;
+    }
+  }
+}
+
+// Listings
 .listing-catalogue {
   display: flex;
   flex-flow: row wrap;
@@ -201,44 +278,23 @@ p {
     }
   }
 }
-
 .listing-view {
   display: flex;
   flex-wrap: wrap;
 }
 
-.meta-data > span {
-  margin-right: 1rem;
-  padding-right: 1rem;
-  border-right: solid 1px #eee;
-  text-transform: uppercase;
-}
-
-.meta-data > span:last-of-type {
-  border: 0;
-}
-
-
 
 /* Utilities -------------------------------------------------------------- */
 
-
-
+.margin-top-sm {
+  margin-top: 2rem;
+}
 
 /* Bootstrap Overrides ---------------------------------------------------- */
 
 .modal-footer {
   text-align: left;
 }
-
-
-
-
-
-
-
-
-
 
 
 
@@ -260,10 +316,10 @@ p {
   width: 100%;
 	height: 100vh;
   margin: 0;
-  padding: 10% 30%;
+  padding: 10%;
 }
 
-.onboarding-screens section div {
+.onboarding-screens section > div {
   display: flex;
   flex-flow: column;
   align-content: center;
@@ -271,8 +327,15 @@ p {
   padding-bottom: 8rem;
 }
 
-.onboarding-screens section p, .onboarding-screens section h1, .onboarding-screens section a {
+.onboarding-screens section p,
+.onboarding-screens section h1,
+.onboarding-screens section a,
+.onboarding-screens section form {
 	margin: 5rem 5rem 0;
+}
+
+.onboarding-screens section form .btn-lg {
+  margin-top: 3rem;
 }
 
 .onboarding-screens section a.scroll-button {

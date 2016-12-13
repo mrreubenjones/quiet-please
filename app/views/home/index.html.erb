@@ -1,43 +1,47 @@
 <% provide(:title, "Welcome") %>
-
+<nav class="navbar navbar-fixed-top navbar-inverse navbar-onboarding">
+  <ul class="nav navbar-nav">
+    <li>
+      <%= link_to new_session_path do %>
+        &nbsp;Log in&nbsp;<i class="fa fa-angle-right" aria-hidden="true"></i>
+      <% end %>
+    </li>
+  </ul>
+</nav>
 <div class="onboarding-screens">
+  <section id="section01">
+    <div class="text-center">
+    	<h1 id="logo">&nbsp;<i class="fa fa-bullhorn" aria-hidden="true"></i>&nbsp;<br />Quietly</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    	<a href="#section02" class="scroll-button"><span></span></a>
+    </div>
+  </section>
+  <section id="section02">
+    <div>
+    	<h1><i class="fa fa-heart-o" aria-hidden="true"></i><br />Engaged Supporters</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    	<a href="#section03" class="scroll-button"><span></span></a>
+    </div>
+  </section>
+  <section id="section03">
+    <div>
+    	<h1>Increased Bidding</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    	<a href="#section04" class="scroll-button"><span></span></a>
+    </div>
+  </section>
+  <section id="section04">
+    <div>
+    	<h1>Streamlined Payments</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    	<a href="#section05" class="scroll-button"><span></span></a>
+    </div>
+  </section>
+  <section id="section05">
+    <div>
+    	<h1>Get Started</h1>
+      <%= render 'users/signup_form', { btn_label: 'Sign up and plan your first auction' } %>
 
-      <section id="section01">
-        <div>
-        	<h1>Welcome to Quietly</h1>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        	<a href="#section02" class="scroll-button"><span></span></a>
-        </div>
-      </section>
-      <section id="section02">
-        <div>
-        	<h1>Engaged Supporters</h1>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        	<a href="#section03" class="scroll-button"><span></span></a>
-        </div>
-      </section>
-      <section id="section03">
-        <div>
-        	<h1>Increased Bidding</h1>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        	<a href="#section04" class="scroll-button"><span></span></a>
-        </div>
-      </section>
-      <section id="section04">
-        <div>
-        	<h1>Streamlined Payments</h1>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        	<a href="#section05" class="scroll-button"><span></span></a>
-        </div>
-      </section>
-      <section id="section05">
-        <div>
-        	<h1>Get Started</h1>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        	<%= link_to 'Sign up and start your auction', new_user_path, { class: "btn btn-lg btn-primary" } %>
-        </div>
-      </section>
-
-
-
+    </div>
+  </section>
 </div>

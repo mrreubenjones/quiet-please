@@ -14,7 +14,7 @@ class Admin::TiersController < ApplicationController
     if @tier.save
       redirect_to admin_auction_path(@auction)
     else
-      render 'tier_form'
+      render 'auctions/show'
     end
   end
 

@@ -30,6 +30,9 @@
   <h2>New auction</h2>
   <%= render 'admin/auctions/auction_form', btn_label: 'New Auction' %>
 <% else %>
-  <h2>Get started with your first auction</h2>
-  <%= render 'admin/auctions/auction_form', btn_label: 'New Auction' %>
+  <div class="dashboard-blank-slate">
+    <h2>This is your dashboard. You'll manage your auctions from here. :)</h2>
+    <h2>Get started now with your first auction:</h2>
+    <%= render 'admin/auctions/auction_form', btn_label: 'New Auction' %>
+  </div>
 <% end %>

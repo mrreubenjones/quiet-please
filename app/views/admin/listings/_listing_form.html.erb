@@ -40,11 +40,13 @@
             <% end %>
           </div>
           <% if @listing.errors.any? %>
-            <ul>
-              <% @listing.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
-              <% end %>
-            </ul>
+            <div class="alert alert-danger margin-top-sm" role="alert">
+              <ul>
+                <% @listing.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+                <% end %>
+              </ul>
+            </div>
           <% end %>
         </div>
         <div class="modal-footer">

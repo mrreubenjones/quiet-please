@@ -4,7 +4,7 @@
   <p><%= @auction.description %></p>
 
   <div class="auction-controls">
-    <h3>Auction Status: <%= @auction.aasm_state %></h3>
+    <h3>Auction Status: <%= @auction.aasm_state.titleize %></h3>
     <ul>
       <li>
         <%= link_to 'View Auction', auction_path(@auction) %>

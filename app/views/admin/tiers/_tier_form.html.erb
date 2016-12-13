@@ -32,11 +32,13 @@
         <!-- Validations -->
         <div class="col-xs-8">
           <% if @tier.errors.any? %>
-            <ul>
-              <% @tier.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
-              <% end %>
-            </ul>
+            <div class="alert alert-danger margin-top-sm" role="alert">
+              <ul>
+                <% @tier.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+                <% end %>
+              </ul>
+            </div>
           <% end %>
         </div>
       </div>

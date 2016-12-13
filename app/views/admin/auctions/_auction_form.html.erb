@@ -1,19 +1,21 @@
-<% if @auction.errors.any? %>
-  <ul>
-    <% @auction.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-  </ul>
-<% end %>
-
 <%= form_for @auction, url: admin_auctions_path do |f| %>
-  <div>
+  <div class="form-group">
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class: 'form-control', placeholder: "Eg. Annual Gala Dinner, #{Time.now.year}" %>
   </div>
-  <div>
+  <div class="form-group">
     <%= f.label :description %>
-    <%= f.text_area :description %>
+    <%= f.text_area :description, class: 'form-control', placeholder: 'A general description of your event. You will have a chance to add more details later.' %>
   </div>
   <%= f.submit btn_label, class: "btn btn-primary" %>
+<% end %>
+
+<% if @auction.errors.any? %>
+  <div class="alert alert-danger margin-top-sm" role="alert">
+    <ul>
+      <% @auction.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
 <% end %>

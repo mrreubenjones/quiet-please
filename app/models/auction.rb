@@ -3,6 +3,9 @@ class Auction < ApplicationRecord
   has_many :listings, dependent: :destroy
   has_many :tiers, dependent: :destroy
 
+  validates :name, presence: true
+  validates :description, presence: true
+
   after_initialize :set_defaults
 
   # Manage states with Acts As State Machine: https://github.com/aasm/aasm

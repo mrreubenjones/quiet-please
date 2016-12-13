@@ -1,8 +1,9 @@
 class HomeController < ApplicationController
 
-
   def index
+    @user = User.new
     render action: 'index', layout: 'onboarding'
+
   end
 
   def home

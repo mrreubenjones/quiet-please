@@ -8,12 +8,13 @@ class Admin::AuctionsController < ApplicationController
   end
 
   def create
+    @user = User.find(session[:user_id])
     @auction = Auction.new auction_params
     @auction.user = current_user
     if @auction.save
       redirect_to admin_auction_path(@auction)
     else
-      render :new
+      render 'users/dashboard'
     end
   end
 
