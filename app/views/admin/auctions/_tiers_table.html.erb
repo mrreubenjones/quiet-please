@@ -5,6 +5,7 @@
         <th>Tier</th>
         <th>Opening Time</th>
         <th>Closing Time</th>
+        <th>Actions</th>
       </tr>
 
     <% @tiers.each do |t| %>
@@ -12,6 +13,14 @@
         <td><%= link_to t.name, admin_tier_path(t) %></td>
         <td><%= t.opening_time %></td>
         <td><%= t.closing_time %></td>
+        <td class="text-nowrap">
+          <%= link_to icon('pencil'), edit_admin_tier_path(t) %>
+          <%= link_to icon('trash'),
+            admin_tier_path(t),
+            method: :delete,
+            data: { confirm: "Are you sure you want to delete this tier?
+              There's no going back!" } %>
+        </td>
       </tr>
     <% end %>
     </table>

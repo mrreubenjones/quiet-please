@@ -29,6 +29,9 @@ class Admin::TiersController < ApplicationController
   end
 
   def destroy
+    @tier = Tier.find params[:id]
+    @tier.destroy
+    redirect_to admin_auction_path(@tier.auction), notice: 'Tier deleted'
   end
 
   private
