@@ -31,6 +31,7 @@ gem 'omniauth-twitter'
 gem 'twitter'
 gem 'rack-cors'
 gem 'friendly_id'
+gem 'rails-erd'
 
 # Manage the states
 gem 'aasm'
@@ -51,6 +52,13 @@ gem 'simple_form'
 gem 'kaminari'
 gem 'data-confirm-modal'
 gem 'pickadate-rails'
+
+# Take payments
+gem 'stripe'
+
+# Refactoring and performance
+gem 'virtus'
+gem 'newrelic_rpm'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -80,6 +88,9 @@ group :development do
   gem 'interactive_editor'
   gem 'awesome_print'
   gem 'hirb'
+
+  # Performance
+  gem 'bullet'
 
 end
 

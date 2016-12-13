@@ -1,24 +1,42 @@
 <h1><%= @auction.name %></h1>
-<p><%= @auction.description %></p>
-<%= link_to 'Edit', edit_admin_auction_path(@auction) %>
-<%= link_to 'Delete',
-  admin_auction_path(@auction),
-  method: :delete,
-  data: { confirm: "Are you sure? There's no going back!" }
-%>
 
-<hr />
-<!-- Buttons trigger modals -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#tierModal">
-  Add Tier
-</button>
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#listingModal">
-  Add Listing
-</button>
+<div class="">
+  <p><%= @auction.description %></p>
 
-<%= render 'admin/tiers/tier_form', btn_label: 'New Tier' %>
-<%= render 'admin/listings/listing_form', btn_label: 'New Listing' %>
+  <div class="auction-controls">
+    <h3>Auction Status: <%= @auction.aasm_state %></h3>
+    <ul>
+      <li>
+        <%= link_to 'View Auction', auction_path(@auction) %>
+      </li>
+      <li>
+        <%= link_to 'Edit', edit_admin_auction_path(@auction) %>
+      </li>
+      <li>
+        <%= link_to 'Delete',
+          admin_auction_path(@auction),
+          method: :delete,
+          data: { confirm: "Are you sure? There's no going back!" }
+        %>
+      </li>
+      <li>
+        <a href="#" data-toggle="modal" data-target="#tierModal">Add Tier</a>
+      </li>
+      <li>
+        <a href="#" data-toggle="modal" data-target="#listingModal">Add Listing</a>
+      </li>
+    </ul>
+  </div>
 
-<hr />
-<%= render 'tiers_table' if @auction.tiers.present? %>
-<%= render 'listings_table' if @auction.listings.present? %>
+  <div class="auction-content">
+    <%= render 'admin/tiers/tier_form', btn_label: 'New Tier' %>
+    <%= render 'admin/listings/listing_form', btn_label: 'New Listing' %>
+
+    <hr />
+    <h3>Tiers</h3>
+    <%= render 'tiers_table' if @auction.tiers.present? %>
+    <h3>Listings</h3>
+    <%= render 'listings_table' if @auction.listings.present? %>
+  </div>
+
+</div>

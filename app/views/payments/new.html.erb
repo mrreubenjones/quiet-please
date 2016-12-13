@@ -1,0 +1,37 @@
+<h1>Payment Page :)</h1>
+
+<%= form_tag pledge_payments_path(@pledge), id: 'server-form' do %>
+  <input type='hidden' name='stripe_token' id='stripe-token'>
+<% end %>
+
+<%= form_tag '', id: 'stripe-token-form' do %>
+  <div>
+    <label for='card-number'>Card Number</label>
+    <input type='text' class='card-number' id='card-number'>
+  </div>
+  <div>
+    <label for='card-cvc'>CVC</label>
+    <input type='text' class='card-cvc' id='card-cvc'>
+  </div>
+  <div>
+    <label>Card Expiry</label>
+    <%= select_month(
+      Date.today,
+      { use_month_numbers: true },
+      { class: 'card-expiry-month'}) %>
+    <%= select_year(
+      Date.today,
+      { start_year: Date.today.year, end_year: Date.today.year + 5 },
+      { class: 'card-expiry-year'}) %>
+  </div>
+  <div>
+    <label for='address_zip'>Address ZIP Code</label>
+    <input type='text' class='address_zip' id='address_zip'>
+  </div>
+  <%= submit_tag 'Make payment' %>
+<% end %>
+<div id="stripe-error">
+
+</div>
+
+

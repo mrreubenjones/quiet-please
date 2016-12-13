@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= site_title(yield(:title)) %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= stylesheet_link_tag 'application',
+        'https://fonts.googleapis.com/css?family=Patua+One',
+        media: 'all' %>
+
+    <%= javascript_include_tag 'application' %>
+    <%= render 'layouts/shim' %>
+
+
+  </head>
+  <body>
+
+      <%= yield %>
+
+
+  </body>
+</html>

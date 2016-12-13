@@ -4,6 +4,7 @@
     <th>Description</th>
     <th>Reserve</th>
     <th class="text-nowrap">Price Guarantee</th>
+    <th></th>
   </tr>
 
 <% @listings.each do |l| %>
@@ -12,6 +13,13 @@
     <td><%= l.description %></td>
     <td><%= l.reserve_price %></td>
     <td><%= l.guaranteed_price %></td>
+    <td class="text-nowrap">
+      <%= link_to icon('pencil'), edit_admin_listing_path(l) %>
+      <%= link_to icon('trash'),
+        admin_listing_path(l),
+        method: :delete,
+        data: { confirm: "Are you sure? There's no going back!" } %>
+    </td>
   </tr>
 <% end %>
 </table>

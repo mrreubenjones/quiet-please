@@ -1,12 +1,43 @@
-<h1>Hi Supporters</h1>
-<%= @listing.title %>
-<div class="meta-data">
-  <span>Auction: <%= link_to @listing.auction.name, auction_path(@listing.auction_id) %></span>
-  <span>Reserve Price: <%= @listing.reserve_price %></span>
-  <span>Guaranteed Price: <%= @listing.guaranteed_price %></span>
+<h2><%= @listing.auction.name %></h2>
+<h1><%= @listing.title %></h1>
+
+<div class="listing-view">
+  <%= image_tag @listing.images[0].full_listing_size.url %>
+
+  <div>
+    <div class="meta-data">
+      <span>Auction: <%= link_to @listing.auction.name, auction_path(@listing.auction_id) %></span>
+      <span>Reserve Price: <%= @listing.reserve_price %></span>
+      <span>Guaranteed Price: <%= @listing.guaranteed_price %></span>
+    </div>
+
+    <h2>Description</h2>
+    <p><%= @listing.description %></p>
+  </div>
 </div>
 
-<h2>Description</h2>
+<div class="bids-wrapper">
+  <h2>New Bid</h2>
+  <%= form_for [@listing, @bid] do |f| %>
+    <%= f.text_field :amount, placeholder: '$' %>
+    <%= f.submit 'Bid!', class: "btn btn-primary" %>
+  <% end %>
 
-<p><%= @listing.description %></p>
-<%#= image_tag(@listing.images[0].url) %>
+  <h2>Current Bid:
+  <% if @listing.bids.present? %>
+    <%= number_to_currency(@listing.max_amount) %>
+  <% else %>
+    0
+  <% end %>
+  </h2>
+
+
+
+  <h2>Bid History</h2>
+
+  <% @bids.each do |b| %>
+    <%= number_to_currency(b.amount) %><br />
+    <%= b.user.full_name %>&mdash;<%= b.created_at.strftime("%l:%M%P, %B %d, %Y ") %>
+    <hr />
+  <% end %>
+</div>

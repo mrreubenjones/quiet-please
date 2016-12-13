@@ -19,6 +19,7 @@
 # Ignore sensitive data
 /config/application.yml
 /config/secrets.yml
+/config/initializers/app_keys.rb
 
 # Ignore UGC
 /public/uploads/*

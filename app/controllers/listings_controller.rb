@@ -21,6 +21,8 @@ class ListingsController < ApplicationController
 
   def show
     @listing = Listing.find params[:id]
+    @bid = Bid.new
+    @bids = @listing.bids.order(amount: :desc)
   end
 
 #   def destroy

@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root 'home#home'
+  resources :home, only: [:index, :home]
 
   # Auctions state custom routes
   post '/auctions/:auction_id/publish', to: 'transitions#create_publish', as: 'publish'
@@ -31,9 +32,10 @@ Rails.application.routes.draw do
 
   # Auction public views
   resources :auctions, only: :show, shallow: true do
-    # resources :tiers, only: :show
     resources :listings, only: :show do
-      resources :bids
+      resources :bids do
+        resources :payments, only: [:new, :create]
+      end
     end
   end
 

@@ -1,0 +1,63 @@
+Stripe.setPublishableKey('<%= ENV['STRIPE_PUB_KEY'] %>');
+
+$(function() {
+  $('#stripe-token-form').submit(function(e){
+    e.preventDefault();
+
+    Stripe.card.createToken({
+      number: $('.card-number').val(),
+      cvc: $('.card-cvc').val(),
+      exp_month: $('.card-expiry-month').val(),
+      exp_year: $('.card-expiry-year').val(),
+      address_zip: $('.address_zip').val()
+    }, stripeResponseHandler);
+  });
+
+  // Sample code from Stripe:
+  // function stripeResponseHandler(status, response) {
+  //
+  //   // Grab the form:
+  //   var $form = $('#payment-form');
+  //
+  //   if (response.error) { // Problem!
+  //
+  //     // Show the errors on the form
+  //     $form.find('.payment-errors').text(response.error.message);
+  //     $form.find('button').prop('disabled', false); // Re-enable submission
+  //
+  //     $('#stripe-error').html()
+  //
+  //   } else { // Token was created!
+  //
+  //     // Get the token ID:
+  //     var token = response.id;
+  //
+  //     // Insert the token into the form so it gets submitted to the server:
+  //     $form.append($('<input type="hidden" name="stripeToken" />').val(token));
+  //
+  //     // Submit the form:
+  //     $form.get(0).submit();
+  //
+  //   }
+  // }
+
+  function stripeResponseHandler(status, response) {
+    if(status === 200) {
+      // setting the value of the server form hidden field to equal to the
+      // stripe temp token so we can send it to the server
+      $('#stripe-token').val(response.id);
+      // submitting the form that will send the stripe token to our create
+      // action it the payments controller
+      $('#server-form').submit();
+    } else {
+      // this shows the error message in the stripe-error div
+      $('#stripe-error').html(response.error.message);
+      // this re-enables the submit button in the form so the user can attempt
+      // again by entering correct information
+      $("input:submit").prop('disabled', false);
+    }
+  }
+
+
+});
+
