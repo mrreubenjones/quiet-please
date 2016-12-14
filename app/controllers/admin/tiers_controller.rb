@@ -2,6 +2,9 @@ class Admin::TiersController < ApplicationController
   before_action :authenticate_user
 
   def index
+    @auction = Auction.find params[:auction_id]
+    @tiers = @auction.tiers.all
+    @listings = @auction.listings.where(tier_id: nil).order(title: :asc)
   end
 
   def new

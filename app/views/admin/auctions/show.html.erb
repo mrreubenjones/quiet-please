@@ -34,9 +34,12 @@
 
     <hr />
     <h3>Tiers</h3>
+    <span class="table-control"><%= link_to 'Manage Tiers', admin_auction_tiers_path(@auction) %></span>
     <%= render 'tiers_table' if @auction.tiers.present? %>
     <h3>Listings</h3>
     <%= render 'listings_table' if @auction.listings.present? %>
   </div>
 
 </div>
+
+<%# render 'admin/listings/edit_listing' %>

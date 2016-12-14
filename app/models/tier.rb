@@ -6,4 +6,5 @@ class Tier < ApplicationRecord
   validates :opening_time, presence: true
   validates :closing_time, presence: true
 
+
 end

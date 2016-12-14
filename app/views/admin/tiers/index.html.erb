@@ -1,0 +1,27 @@
+<% if @tiers.present? %>
+  <ul>
+    <% @tiers.each do |t| %>
+      <li class="tier-group">
+        <h2><%= t.name %></h2>
+        <% @listing = Listing.where(tier_id: t.id) %>
+        <ul id="tiered-listings" class="sortable-lists">
+          <% if @listing.present? %>
+              <% @listing.each do |l| %>
+                <li>[<%= l.id %>] <%= l.title %></li>
+              <% end %>
+          <% end %>
+        </ul>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>There are no Tiers in this auction.</p>
+<% end %>
+
+<% if @listings.present? %>
+  <ul id="untiered-listings" class="sortable-lists">
+    <% @listings.each do |listing| %>
+      <li>[<%= listing.id %>] <%= listing.title %></li>
+    <% end %>
+  </ul>
+<% end %>

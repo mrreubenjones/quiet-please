@@ -33,7 +33,7 @@ class Admin::ListingsController < ApplicationController
     find_listing
     if @listing.update listing_params
       flash[:notice] = 'Listing updated'
-      redirect_to admin_listing_path(@listing)
+      redirect_to admin_listing_path(@listing.id)
     else
       flash.now[:alert] = 'Please see errors below!'
       render :edit
@@ -50,7 +50,7 @@ private
 
   def listing_params
     params.require(:listing).permit([
-      :tier,
+      :tier_id,
       :title,
       :description,
       :reserve_price,

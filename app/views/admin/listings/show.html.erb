@@ -14,11 +14,12 @@
     <%= image_tag i.url(:full_listing_size) %>
   <% end %>
 <% end %>
-<%= link_to 'Edit', edit_admin_listing_path(@listing) %>
+<%# link_to 'Edit', edit_admin_listing_path(@listing.id) %>
 <%= link_to 'Delete',
-  admin_listing_path(@listing),
+  admin_listing_path(@listing.id),
   method: :delete,
-  data: { confirm: 'There is no undo for this action' }
+  data: { confirm: 'There is no undo for this action' },
+  class: 'btn btn-default'
 %>
 
 <!-- Buttons trigger modals -->

@@ -9,17 +9,24 @@
 
 <% @listings.each do |l| %>
   <tr>
-    <td><%= link_to l.title, admin_listing_path(l) %></td>
+    <td><%= link_to l.title, admin_listing_path(l.id) %></td>
     <td><%= l.description %></td>
     <td><%= l.reserve_price %></td>
     <td><%= l.guaranteed_price %></td>
     <td class="text-nowrap">
-      <%= link_to icon('pencil'), edit_admin_listing_path(l) %>
+      <!-- Buttons trigger modals -->
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editListing">
+        <%= image_tag icon('pencil') %>
+      </button>
+      <%# link_to icon('pencil'), edit_admin_listing_path(l) %>
       <%= link_to icon('trash'),
-        admin_listing_path(l),
+        admin_listing_path(l.id),
         method: :delete,
         data: { confirm: "Are you sure? There's no going back!" } %>
     </td>
   </tr>
 <% end %>
 </table>
+
+
+

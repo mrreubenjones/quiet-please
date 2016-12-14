@@ -43,6 +43,12 @@ $(function() {
     }, 600, 'swing');
   });
 
+
+  // Sortable lists with jQueryUI
+  $('#tiered-listings, #untiered-listings').sortable({
+      connectWith: ".sortable-lists"
+  });
+
 });
 
 
